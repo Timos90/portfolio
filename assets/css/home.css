@@ -1,0 +1,9 @@
+#underline {
+    text-decoration: none;
+}
+p {
+    color: red;
+}
+#Skill-list {
+    list-style-type: none;
+}
