@@ -27,3 +27,32 @@ function validation() {
     }
 }
     
+function activateSubmit() {
+    const email = document.registration.email.value
+    const firstName = document.registration.first_name.value
+    const lastName = document.registration.last_name.value
+    const submitBtn = document.getElementById("submit")
+
+    if (email.length > 0 && firstName.length > 0 && lastName.length > 0) {
+        //remove "submit-disabled" class from submit button
+        submitBtn.classList.remove("submit-disabled")
+    } else {
+        // add "submit-disabled" class if it doesn't exist
+        submitBtn.classList.add("submit-disabled")
+    }
+
+}
+
+function countText() {
+    const textareaCnt = document.registration.message.value.length
+    const para = document.getElementById("text-count")
+
+    if (textareaCnt == 100) {
+        // change the color to green
+        para.style.color = "green"
+    } else {
+        // change the color to green
+        para.style.color = "red"
+    }
+    para.textContent = textareaCnt + "/100"
+}

@@ -68,7 +68,7 @@
             border: none;
             color: white;
             padding: 16px 32px;
-            background-image: linear-gradient(to right, green, rgb(154, 231, 154));
+            
             cursor: pointer;
             transition: font-size 1s;
         }
@@ -90,6 +90,16 @@
             }
         }
 
+        .submit-disabled {
+            cursor: not-allowed;
+            pointer-events: none;
+            background-image: linear-gradient(to right, rgb(137, 235, 137), rgb(210, 238, 210));
+        }
+        
+        #text-count {
+            color: red;
+            margin-left: 35%;
+        }
 
     </style>
 </head>
@@ -103,6 +113,7 @@
             type="text" 
             name="firstname" 
             placeholder="First Name"
+            onkeyup="activateSubmit()"
             id="first_name">
         <br>
             <label for="last name">Last Name</label>
@@ -110,6 +121,7 @@
             type="text"
             name="lastname"
             placeholder="Last Name"
+            onkeyup="activateSubmit()"
             id="last_name">
         <br>
             <label for="email">Email</label>
@@ -117,6 +129,7 @@
             type="email"
             name="email"
             placeholder="Email"
+            onkeyup="activateSubmit()"
             id="email">
         <br>
     </div>
@@ -154,16 +167,17 @@
     <textarea 
         name="message" 
         id="message" 
-        rows="10">
+        rows="10"
+        onkeyup="countText()">
     </textarea>
     <br>
-
+    <p id="text-count">0/100</p>
     <input type="checkbox" name="newsletter" id="newsletter">
     <label for="newsletter">Subscribe</label>
     <br>
 </div>
-    <input 
-    type="submit" value="Submit">
+    <input class="submit-disabled" id="submit"
+        type="submit" value="Submit">
 
     </form>
     
